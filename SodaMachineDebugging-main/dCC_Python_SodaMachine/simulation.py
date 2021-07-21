@@ -10,7 +10,7 @@ class Simulation:
         soda_machine = SodaMachine()    # add from soda_machine import SodaMchine
         will_proceed = False
         while will_proceed:
-            user_option = user_interface.simulation_main_menu()
+            user_option = self.user_interface.simulation_main_menu() #add self. user_interface
             if user_option == "1":      #added '==' to fix syntax error.
                 soda_machine.begin_transaction(customer)
             elif user_option == "2":
