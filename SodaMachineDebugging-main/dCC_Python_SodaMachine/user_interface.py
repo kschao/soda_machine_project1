@@ -28,11 +28,11 @@ def validate_main_menu(user_input):
 
 def display_customer_wallet_info(coins_list, total_value):
     """Takes in a list of ints to display number of coins along with total value of coins."""
-    print('You have {coins_list[0]} Quarters')
-    print('You have {coins_list[1]} Dimes')
-    print('You have {coins_list[2]} Nickels')
-    print('You have {coins_list[3]} Pennies')
-    print('Your wallet\'s total value is {total_value}')
+    print('You have' + str({coins_list[0]}) + 'Quarters') #fix and add lines 31 to 35 to print total value string
+    print('You have' + str({coins_list[1]}) + 'Dimes')
+    print('You have' + str({coins_list[2]}) + 'Nickels')
+    print('You have' + str({coins_list[3]}) + 'Pennies')
+    print('Your wallet\'s total value is' +  str({total_value}))
 
 
 def display_welcome():
@@ -48,7 +48,7 @@ def display_welcome():
 
 def output_text(text):
     """User input method that will print to console any string passed in as an argument"""
-    print("text")
+    print(text) #removed "" from text param line 51
 
 
 def clear_console():
@@ -74,8 +74,8 @@ def soda_selection(inventory):
         print("Please choose from the following options:")
         i = 1
         for can in soda_options:
-            print("\n\tEnter -{i}- for {can} : ${can.price}")
-            i =+ 1 #add i + = 1
+            print("\n\tEnter -{i}- for {can} : ${can.price}")  # something is wrong here 
+            i += 1 #add i + = 1
         user_selection = try_parse_int(input("Selection:"))
         validated_user_selection = validate_coin_choice(user_selection, soda_options)
     return validated_user_selection[1]
