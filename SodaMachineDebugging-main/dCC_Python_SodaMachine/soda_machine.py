@@ -1,11 +1,12 @@
 from coins import Coin #add from coins import Coins
-
+from cans import Can # add from cans import Can
 class SodaMachine:
     def __init__(self):
         self.register = []
         self.inventory = []
         self.fill_register = ()
         self.coins = Coin #add self.coins = Coin
+        self.cans = Can # ass self.cans = Can
         
 
     def fill_register(self, coins): # add param coins 
@@ -19,7 +20,7 @@ class SodaMachine:
         for index in range(50):
             self.register.append(coins.Penny())
 
-    def fill_inventory(self):
+    def fill_inventory(self, cans): #add cans param
         """Method will fill SodaMachine's cans list with certain amounts of each can when called."""
         for index in range(10):
             self.inventory.append(cans.Cola())
@@ -28,13 +29,13 @@ class SodaMachine:
         for index in range(10):
             self.inventory.append(cans.RootBeer())
 
-    def begin_transaction(self, customer):
+    def begin_transaction(self, customer, user_interface): #add user_interface param
         """Method is complete. Initiates purchase if user decides to proceed. No errors."""
         will_proceed = user_interface.display_welcome()
         if will_proceed:
             self.run_transaction(customer)
 
-    def run_transaction(self, customer):
+    def run_transaction(self, customer, user_interface): #add user_interface line 38
 
         selected_soda_name = user_interface.soda_selection(self.inventory)
 
@@ -46,7 +47,7 @@ class SodaMachine:
 
         user_interface.output_text("Transaction complete")
 
-    def calculate_transaction(self, customer_payment, selected_soda, customer):
+    def calculate_transaction(self, customer_payment, selected_soda, customer, user_interface): #add user_interface param line 50
         total_payment_value = self.calculate_coin_value(customer_payment)
         if total_payment_value < selected_soda.price:
             change_value = self.determine_change_value(total_payment_value, selected_soda.price)
