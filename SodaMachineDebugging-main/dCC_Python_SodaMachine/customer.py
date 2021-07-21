@@ -4,10 +4,10 @@ from coins import Coin
 from user_interface import User_interface
 
 class Customer:
-    def __init__(self):
+    def __init__(self, name, value): #add name value line 7
         self.wallet = Wallet()
         self.backpack = Backpack()
-        self.coins = Coin()#add self.coins = Coin
+        self.coins = Coin(name, value)#add self.coins = Coin  ##add name value
         self.user_interface = User_interface() #add self.user_interface
 
 
@@ -33,7 +33,7 @@ class Customer:
     def get_wallet_coin(self, coin_name):
         """Method responsible for retrieving a single coin from wallet's money list"""
         for coin in self.wallet.money:
-            if coin_name == coin_name: #change period to underscore _
+            if coin_name == coin_name: #change period to underscore _ coin_name instead of coin.name
                 self.wallet.money.remove(coin)
                 return coin
         return None

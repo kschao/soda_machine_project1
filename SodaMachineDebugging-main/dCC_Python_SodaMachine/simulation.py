@@ -1,13 +1,17 @@
 from customer import Customer
 from soda_machine import SodaMachine
+from coins import Coin
+
+
 class Simulation:
     def __init__(self):
-        
+        self.name = (Coin)
+        self.value = (Coin)
         pass
 
     def run_simulation(self):
         """The central method called in main.py."""
-        customer = Customer()       #add from customer import Customer 
+        customer = Customer()       #add from customer import Customer  ##add name value line 10
         soda_machine = SodaMachine()    # add from soda_machine import SodaMchine
         will_proceed = False
         while will_proceed:
