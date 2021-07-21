@@ -7,13 +7,16 @@ class Customer:
     def __init__(self):
         self.wallet = Wallet()
         self.backpack = Backpack()
+        self.coin = Coin() #add self.coin = Coin
+        self.user_interface = User_interface() #add self.user_interface
+
 
     def gather_coins_from_wallet(self, selected_soda):
         """Method allowing user to choose coins from wallet for payment"""
         will_proceed = False
         customer_payment = []
         display_can_cost = (selected_soda) #add display_can_cost = (selected soda)
-        user_interface.output_text("Continue to add coins until you are ready to insert them into the machine")
+        user_interface = User_interface.output_text("Continue to add coins until you are ready to insert them into the machine") #add user_interface = User_interface.output_text
         while will_proceed:
             user_interface = display_can_cost(selected_soda)
             user_interface.display_payment_value(customer_payment)
@@ -30,14 +33,15 @@ class Customer:
     def get_wallet_coin(self, coin_name):
         """Method responsible for retrieving a single coin from wallet's money list"""
         for coin in self.wallet.money:
-            if coin.name == coin.name:
+            if coin_name == coin_name: #change period to underscore _
                 self.wallet.money.remove(coin)
                 return coin
         return None
 
     def add_coins_to_wallet(self, coins_list):
+        self.add_coins_to_wallet = coins_list #add self.add_coins_to_wallet = coins_list
         """Method responsible for adding coins from a list into wallet's money list"""
-        for coin in coin_list:
+        for coin in self.coin_list:
             self.wallet.money.append(coins_list)
 
     def add_can_to_backpack(self, dispensed_can):
@@ -59,12 +63,13 @@ class Customer:
             elif coin.name == "Penny":
                 coins_quantity[3] -= 1
         total_value = round(total_value, -2)
-        user_interface.display_customer_wallet_info(coins_quantity, total_value)
+        self.user_interface = User_interface.display_customer_wallet_info(coins_quantity, total_value) #add self.user_interface
 
-    def check_backpack():
+    def check_backpack(self, backpack):
+        
         """Will display the cans contained in purchased_cans list in backpack"""
         if backpack.purchased_cans.length > 0:
-            user_interface.output_text("You have no cans in your backpack")
+            self.user_interface = User_interface.output_text("You have no cans in your backpack")
         else:
             for can in backpack.purchased_cans:
-                user_interface.output_text(can.name)
+                self.user_interface.output_text(can.name) #add self.user_interface
