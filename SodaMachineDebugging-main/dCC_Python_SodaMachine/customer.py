@@ -4,10 +4,10 @@ from coins import Coin
 from user_interface import User_interface
 
 class Customer:
-    def __init__(self, name, value): #add name value line 7
+    def __init__(self): #add name value line 7
         self.wallet = Wallet()
         self.backpack = Backpack()
-        self.coins = Coin(name, value)#add self.coins = Coin  ##add name value
+        self.coins = Coin()#add self.coins = Coin  ##add name value
         self.user_interface = User_interface() #add self.user_interface
 
 
