@@ -7,7 +7,7 @@ class Customer:
     def __init__(self):
         self.wallet = Wallet()
         self.backpack = Backpack()
-        self.coin = Coin() #add self.coin = Coin
+        self.coins = Coin #add self.coins = Coin
         self.user_interface = User_interface() #add self.user_interface
 
 
