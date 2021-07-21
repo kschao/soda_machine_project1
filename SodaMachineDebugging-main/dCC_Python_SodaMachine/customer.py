@@ -1,4 +1,7 @@
-
+from wallet import Wallet   #add from wallet import Wallet
+from backpack import Backpack #add from backpack import Backpack
+from coins import Coin
+from user_interface import User_interface
 
 class Customer:
     def __init__(self):
@@ -9,9 +12,10 @@ class Customer:
         """Method allowing user to choose coins from wallet for payment"""
         will_proceed = False
         customer_payment = []
+        display_can_cost = (selected_soda) #add display_can_cost = (selected soda)
         user_interface.output_text("Continue to add coins until you are ready to insert them into the machine")
         while will_proceed:
-            user_interface.display_can_cost(selected_soda)
+            user_interface = display_can_cost(selected_soda)
             user_interface.display_payment_value(customer_payment)
             coin_name = user_interface.coin_selection()
             if coin_name == "done":
