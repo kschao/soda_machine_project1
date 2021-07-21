@@ -1,5 +1,6 @@
 from coins import Coin #add from coins import Coins
 from cans import Can # add from cans import Can
+from customer import Customer #add from customer import Customer line 3
 class SodaMachine:
     def __init__(self):
         self.register = []
@@ -88,7 +89,7 @@ class SodaMachine:
             elif change_value == 0:
                 break
             else:
-                user_interface.output_text("Error: Machine does not have enough change to complete transaction")
+                self.user_interface.output_text("Error: Machine does not have enough change to complete transaction") #add self line 91
                 self.deposit_coins_into_register(change_list)
                 change_list = None
                 break
@@ -114,7 +115,7 @@ class SodaMachine:
         """Determines amount of change needed by finding difference of payment amount and can price"""
         return round(selected_soda_price - total_payment, 2)
 
-    def calculate_coin_value(self, coin_list):
+    def calculate_coin_value(self, coin_list, total_value): # add total value line 118
         """Takes in a list of coins, returns the monetary value of list."""
         for coin in coin_list:
             total_value += coin.value
@@ -128,11 +129,12 @@ class SodaMachine:
                 return can
         return None
 
-    def return_inventory(chosen_soda):
+    def return_inventory(self, chosen_soda): #add self param line 132
         """Re-adds a remove can back to inventory upon unsuccessful purchase attempt"""
         self.inventory.append(chosen_soda)
 
-    def deposit_coins_into_register(self, coin_list):
+    def deposit_coins_into_register(self, coins_list): #add coin's'_list line 136
+        
         """Takes in list of coins as argument, adds each coin from list to the register"""
         for coin in coins_list:
             self.register.append(coins_list)
