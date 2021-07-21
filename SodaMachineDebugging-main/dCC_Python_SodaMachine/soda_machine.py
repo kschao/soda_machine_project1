@@ -1,11 +1,14 @@
-
+from coins import Coin #add from coins import Coins
 
 class SodaMachine:
     def __init__(self):
         self.register = []
         self.inventory = []
+        self.fill_register = ()
+        self.coins = Coin #add self.coins = Coin
+        
 
-    def fill_register(self):
+    def fill_register(self, coins): # add param coins 
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
         for index in range(8):
             self.register.append(coins.Quarter())  #Fix indentation
