@@ -1,14 +1,13 @@
 from wallet import Wallet   #add from wallet import Wallet
 from backpack import Backpack #add from backpack import Backpack
-from coins import Coin
-from user_interface import User_interface
+import coins
+import user_interface
 
 class Customer:
     def __init__(self): #add name value line 7
         self.wallet = Wallet()
         self.backpack = Backpack()
-        self.coins = Coin()#add self.coins = Coin  ##add name value
-        self.user_interface = User_interface() #add self.user_interface
+
 
 
     def gather_coins_from_wallet(self, selected_soda):
@@ -16,9 +15,9 @@ class Customer:
         will_proceed = False
         customer_payment = []
         display_can_cost = (selected_soda) #add display_can_cost = (selected soda)
-        user_interface = User_interface.output_text("Continue to add coins until you are ready to insert them into the machine") #add user_interface = User_interface.output_text
+        user_interface.output_text("Continue to add coins until you are ready to insert them into the machine") #add user_interface = User_interface.output_text
         while will_proceed:
-            user_interface = display_can_cost(selected_soda)
+            user_interface.display_can_cost(selected_soda)
             user_interface.display_payment_value(customer_payment)
             coin_name = user_interface.coin_selection()
             if coin_name == "done":

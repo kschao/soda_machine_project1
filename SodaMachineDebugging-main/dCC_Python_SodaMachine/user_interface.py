@@ -1,8 +1,7 @@
 import os
 
-class User_interface:
 
- def simulation_main_menu():
+def simulation_main_menu():
     """Main menu prompting user to choose an option"""
     validate_user_selection = (False, None)
     while validate_user_selection[0] is False:

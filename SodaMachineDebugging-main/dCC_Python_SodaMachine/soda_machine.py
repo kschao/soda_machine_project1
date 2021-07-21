@@ -1,16 +1,15 @@
-from coins import Coin #add from coins import Coins
-from cans import Can # add from cans import Can
+import coins   #add from coins import Coins
+import cans   # add from cans import Can
 from customer import Customer #add from customer import Customer line 3
 class SodaMachine:
     def __init__(self):
         self.register = []
         self.inventory = []
-        self.fill_register = ()
-        self.coins = Coin #add self.coins = Coin
-        self.cans = Can # ass self.cans = Can
+        self.fill_register()
+        self.fill_inventory()
         
 
-    def fill_register(self, coins): # add param coins 
+    def fill_register(self): # add param coins 
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
         for index in range(8):
             self.register.append(coins.Quarter())  #Fix indentation
@@ -21,7 +20,7 @@ class SodaMachine:
         for index in range(50):
             self.register.append(coins.Penny())
 
-    def fill_inventory(self, cans): #add cans param
+    def fill_inventory(self): #add cans param
         """Method will fill SodaMachine's cans list with certain amounts of each can when called."""
         for index in range(10):
             self.inventory.append(cans.Cola())
