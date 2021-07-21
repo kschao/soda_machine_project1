@@ -136,5 +136,5 @@ class SodaMachine:
     def deposit_coins_into_register(self, coins_list): #add coin's'_list line 136
         
         """Takes in list of coins as argument, adds each coin from list to the register"""
-        for coin in coins_list:
+        for self.coin in coins_list: # add self.coin line 139
             self.register.append(coins_list)
