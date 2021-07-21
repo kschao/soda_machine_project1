@@ -156,6 +156,6 @@ def validate_coin_selection(selection):
 
 def end_message(soda_name, change_amount):
     """Closing message displaying name of soda purchased and amount of change returned"""
-    print(f'Enjoy your {soda}')
+    print(f'Enjoy your {soda_name}') #add soda_name line 159 user_interface.py
     if change_amount >= 0:
         print(f'Dispensing ${change_amount}')
