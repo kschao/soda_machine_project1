@@ -148,7 +148,7 @@ def coin_selection():
 def validate_coin_selection(selection):
     """Validation function that checks if 'selection' arugment is an int 1-5"""
     switcher = {
-        'q': (True, "Quarter"), #change numbers to true of selection for type of coins to lower case start name
+        'q': (True, "Quarter"), #change numbers to true of selection for type of coins to lower case starting name of type of coins
         'd': (True, "Dime"),
         'n': (True, "Nickel"),
         'p': (True, "Penny"),
@@ -159,6 +159,6 @@ def validate_coin_selection(selection):
 
 def end_message(soda_name, change_amount):
     """Closing message displaying name of soda purchased and amount of change returned"""
-    print(f'Enjoy your {soda_selection.name}')  # change to soda.name
+    print(f'Enjoy your {soda_selection.name}')  # change to soda_selection.name
     if change_amount >= 0:
         print(f'Dispensing ${change_amount}')

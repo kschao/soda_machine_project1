@@ -90,7 +90,7 @@ class SodaMachine:
             elif change_value == 0:
                 break
             else: #move output text up to level with line
-                user_interface.output_text("Error: Machine does not have enough change to complete transaction")  # add self line 91
+                user_interface.output_text("Error: Machine does not have enough change to complete transaction")  # add self 
                 self.deposit_coins_into_register(change_list)
                 change_list = None
                 break
