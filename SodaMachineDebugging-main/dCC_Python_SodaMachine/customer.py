@@ -1,6 +1,5 @@
 from wallet import Wallet  # add from wallet import Wallet
 from backpack import Backpack  # add from backpack import Backpack
-import coins
 import user_interface
 
 
