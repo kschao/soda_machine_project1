@@ -12,13 +12,13 @@ class SodaMachine:
 
     def fill_register(self):  # add param coins
         """Method will fill SodaMachine's register with certain amounts of each coin when called."""
-        for index in range(0):
+        for index in range(8):
             self.register.append(coins.Quarter())  # Fix indentation
-        for index in range(0):
+        for index in range(10):
             self.register.append(coins.Dime())
-        for index in range(0):
+        for index in range(20):
             self.register.append(coins.Nickel())
-        for index in range(0):
+        for index in range(50):
             self.register.append(coins.Penny())
 
     def fill_inventory(self):  # add cans param

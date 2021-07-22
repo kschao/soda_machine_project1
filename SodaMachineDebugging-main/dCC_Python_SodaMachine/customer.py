@@ -61,8 +61,7 @@ class Customer:
             elif coin.name == "Penny":
                 coins_quantity[3] += 1
         total_value = round(total_value, 2)
-        user_interface.display_customer_wallet_info(
-            coins_quantity, total_value)  # removed self.user_interface
+        user_interface.display_customer_wallet_info(coins_quantity, total_value)  # removed self.user_interface
 
     def check_backpack(self):
         """Will display the cans contained in purchased_cans list in backpack"""
