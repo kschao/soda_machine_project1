@@ -1,5 +1,6 @@
 import os
-
+from cans import Can
+from coins import Coin
 
 def simulation_main_menu():
     """Main menu prompting user to choose an option"""
@@ -28,12 +29,11 @@ def validate_main_menu(user_input):
 
 def display_customer_wallet_info(coins_list, total_value):
     """Takes in a list of ints to display number of coins along with total value of coins."""
-    print('You have' + str({coins_list[0]}) +
-          'Quarters')  # fix and add lines 31 to 35 to print total value string
-    print('You have' + str({coins_list[1]}) + 'Dimes')
-    print('You have' + str({coins_list[2]}) + 'Nickels')
-    print('You have' + str({coins_list[3]}) + 'Pennies')
-    print('Your wallet\'s total value is' + str({total_value}))
+    print('You have {coins_list[0]} Quarters')  # fix and add lines 31 to 35 to print total value string
+    print('You have {coins_list[1]} Dimes')
+    print('You have {coins_list[2]} Nickels')
+    print('You have {coins_list[3]} Pennies')
+    print(f'Your wallet\'s total value is {total_value}')
 
 
 def display_welcome():
@@ -116,8 +116,10 @@ def get_unique_can_names(inventory):
 
 
 def display_can_cost(selected_can):
+
     """Displays the name of a can and its price"""
-    print(f'The price of a {selected_can.name} is ${selected_can.price}')
+    print(
+        f'The price of a {selected_can.name} is ${selected_can.price}')
 
 
 def display_payment_value(customer_payment):
