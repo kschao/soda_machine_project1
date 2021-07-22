@@ -1,16 +1,15 @@
 import os
-from cans import Can
-from coins import Coin
+
 
 def simulation_main_menu():
     """Main menu prompting user to choose an option"""
     validate_user_selection = (False, None)
     while validate_user_selection[0] is False:
         print("\t\t-Simulation menu-")
-        print("\tPress -1- to begin transaction")
-        print("\tPress -2- to check wallet for coins")
-        print("\tPress -3- to check backpack for cans")
-        print("\tPress -4- to terminate simulation")
+        print("\tPress -0- to begin transaction")
+        print("\tPress -1- to check wallet for coins")
+        print("\tPress -2- to check backpack for cans")
+        print("\tPress -3- to terminate simulation")
         user_input = try_parse_int(input())
         validate_user_selection = validate_main_menu(user_input)
     return validate_user_selection[1]
@@ -18,29 +17,29 @@ def simulation_main_menu():
 
 def validate_main_menu(user_input):
     """Validation function that checks if 'user_input' argument is an int 1-4. No errors."""
+    #in switcher changes 0 1 2 3 
     switcher = {
+        0: (True, 0),
         1: (True, 1),
         2: (True, 2),
         3: (True, 3),
-        4: (True, 4),
     }
     return switcher.get(user_input, (False, None))
 
 
 def display_customer_wallet_info(coins_list, total_value):
     """Takes in a list of ints to display number of coins along with total value of coins."""
-    print('You have {coins_list[0]} Quarters')  # fix and add lines 31 to 35 to print total value string
-    print('You have {coins_list[1]} Dimes')
-    print('You have {coins_list[2]} Nickels')
-    print('You have {coins_list[3]} Pennies')
-    print(f'Your wallet\'s total value is {total_value}')
+    print(f'You have {coins_list[0]} Quarters')  # fix and add lines 31 to 35 to print total value string
+    print(f'You have {coins_list[1]} Dimes')
+    print(f'You have {coins_list[2]} Nickels')
+    print(f'You have {coins_list[3]} Pennies')
+    print(f'Your wallet\'s total value is ${total_value}') #add $
 
 
 def display_welcome():
     """Initial method asking user if they'll make a purchase. No errors."""
     print("\nWelcome to the soda machine.  We only take coins as payment. \n")
-    user_response = continue_prompt(
-        "Would you like to make a purchase? (y/n):")
+    user_response = continue_prompt("Would you like to make a purchase? (y/n):")
     if user_response:
         return True
     else:
@@ -77,11 +76,10 @@ def soda_selection(inventory):
         i = 1
         for can in soda_options:
             # something is wrong here
-            print(f"\n\tEnter -{i}- for {can.name} : ${can.price}")
+            print(f"\n\tEnter -{i}- for {soda_options[i-1].name} : ${can.price}") #add soda options.name
             i += 1  # add i + = 1
         user_selection = try_parse_int(input("Selection:"))
-        validated_user_selection = validate_coin_choice(
-            user_selection, soda_options)
+        validated_user_selection = validate_coin_choice(user_selection, soda_options)
     return validated_user_selection[1]
 
 
@@ -98,7 +96,9 @@ def try_parse_int(value):
     """Attempts to parse a string into an integer, returns 0 if unable to parse. No errors."""
     try:
         return int(value)
-    except:
+    except ValueError: #add except ValueError: and return value.lower()
+        return value.lower()
+    except TypeError:   #add except TypeError:
         return 0
 
 
@@ -116,10 +116,8 @@ def get_unique_can_names(inventory):
 
 
 def display_can_cost(selected_can):
-
     """Displays the name of a can and its price"""
-    print(
-        f'The price of a {selected_can.name} is ${selected_can.price}')
+    print(f'The price of a {selected_can.name} is ${selected_can.price}')
 
 
 def display_payment_value(customer_payment):
@@ -135,10 +133,10 @@ def coin_selection():
     """Prompts user to choose which coins to deposit and passes their selection in validate_coin_selection"""
     validated_user_selection = (False, None)
     while validated_user_selection[0] is False:
-        print("\n\tEnter -1- for Quarter")
-        print("\tEnter -2- for Dime")
-        print("\tEnter -3- for Nickel")
-        print("\tEnter -4- for Penny")
+        print("\n\tEnter -Q- for Quarter") #Change enter letter for choice of type coins
+        print("\tEnter -D- for Dime")
+        print("\tEnter -N- for Nickel")
+        print("\tEnter -P- for Penny")
         print("\tEnter -5- for when finished to deposit payment into machine")
         user_input = try_parse_int(input())
         validated_user_selection = validate_coin_selection(user_input)
@@ -150,10 +148,10 @@ def coin_selection():
 def validate_coin_selection(selection):
     """Validation function that checks if 'selection' arugment is an int 1-5"""
     switcher = {
-        1: (True, "Quarter"),
-        2: (True, "Dime"),
-        3: (True, "Nickel"),
-        4: (True, "Penny"),
+        'q': (True, "Quarter"), #change numbers to true of selection for type of coins to lower case start name
+        'd': (True, "Dime"),
+        'n': (True, "Nickel"),
+        'p': (True, "Penny"),
         5: (True, "Done")
     }
     return switcher.get(selection, (False, None))
@@ -161,7 +159,6 @@ def validate_coin_selection(selection):
 
 def end_message(soda_name, change_amount):
     """Closing message displaying name of soda purchased and amount of change returned"""
-    print(
-        f'Enjoy your {soda_name}')  # add soda_name line 159 user_interface.py
+    print(f'Enjoy your {soda_selection.name}')  # change to soda.name
     if change_amount >= 0:
         print(f'Dispensing ${change_amount}')

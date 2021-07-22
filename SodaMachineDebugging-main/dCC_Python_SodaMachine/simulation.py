@@ -1,6 +1,6 @@
+import user_interface
 from customer import Customer
 from soda_machine import SodaMachine
-import user_interface
 
 
 class Simulation:
@@ -14,11 +14,11 @@ class Simulation:
         will_proceed = True
         while will_proceed:
             user_option = user_interface.simulation_main_menu()  # add self. user_interface
-            if user_option == 1:  # added '==' to fix syntax error.
+            if user_option == 0:  # added '==' to fix syntax error.
                 soda_machine.begin_transaction(customer)
-            elif user_option == 2:
+            elif user_option == 1:
                 customer.check_coins_in_wallet()
-            elif user_option == 3:
+            elif user_option == 2:
                 customer.check_backpack()
             else:
                 will_proceed = False

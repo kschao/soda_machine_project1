@@ -1,4 +1,4 @@
-import coins  # add  import coins line 1 (wallet.py)
+import coins # add  import coins line 1 (wallet.py)
 
 
 class Wallet:
